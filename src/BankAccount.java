@@ -24,7 +24,8 @@ public class BankAccount {
     public boolean withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
-            System.out.println("Withdraw " + amount + " from " + accountHolder + "'s account. New balance is " + balance);
+            System.out
+                    .println("Withdraw " + amount + " from " + accountHolder + "'s account. New balance is " + balance);
             return true;
 
         } else {
@@ -34,6 +35,15 @@ public class BankAccount {
             return false;
 
         }
+    }
+
+    public boolean transfer(BankAccount other, double amount) {
+        boolean success = this.withdraw(amount);
+        if (success) {
+            other.deposit(amount);
+            System.out.println("Transferred " + amount + " from " + this.accountHolder + " to " + other.accountHolder);
+        }
+        return success;
     }
 
 }
