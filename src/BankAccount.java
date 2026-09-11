@@ -1,10 +1,12 @@
 public class BankAccount {
     private String accountHolder;
     private double balance;
+    private int transactionCount;
 
     public BankAccount(String accountHolder, double balance) {
         this.accountHolder = accountHolder;
         this.balance = balance;
+        this.transactionCount = 0;
     }
 
     public String getAccountHolder() {
@@ -17,6 +19,7 @@ public class BankAccount {
 
     public void deposit(double amount) {
         this.balance += amount;
+        this.transactionCount++;
         System.out.println("Deposited " + amount + " to " + accountHolder + "'s account. New balance is " + balance);
 
     }
@@ -24,6 +27,7 @@ public class BankAccount {
     public boolean withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
+            this.transactionCount++;
             System.out
                     .println("Withdraw " + amount + " from " + accountHolder + "'s account. New balance is " + balance);
             return true;
@@ -44,6 +48,10 @@ public class BankAccount {
             System.out.println("Transferred " + amount + " from " + this.accountHolder + " to " + other.accountHolder);
         }
         return success;
+    }
+
+    public int getTransactionCount() {
+        return transactionCount;
     }
 
 }

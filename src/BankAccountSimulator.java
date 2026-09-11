@@ -12,6 +12,8 @@ public class BankAccountSimulator {
         account1.transfer(account2, 300.0);
         System.out.println(account1.getAccountHolder() + "'s balance: " + account1.getBalance());
         System.out.println(account2.getAccountHolder() + "'s balance: " + account2.getBalance());
+        System.out.println(account1.getAccountHolder() + "'s transaction count: " + account1.getTransactionCount());
+        System.out.println(account2.getAccountHolder() + "'s transaction count: " + account2.getTransactionCount());
 
         System.out.println("\n -- Manual Test -- ");
 
